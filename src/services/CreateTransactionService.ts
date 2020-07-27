@@ -6,8 +6,8 @@ import TransactionsRepository from '../repositories/TransactionsRepository';
 
 interface Request {
   title: string;
-  value: number;
   type: 'income' | 'outcome';
+  value: number;
   category: string;
 }
 
@@ -48,7 +48,7 @@ class CreateTransactionService {
       category: transactionCategory,
     });
 
-    transactionsRepository.save(transaction);
+    await transactionsRepository.save(transaction);
 
     return transaction;
   }
